@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    background-image: url('https://www.shutterstock.com/image-photo/construction-worker-wearing-yellow-hard-600nw-2492762447.jpg'); /* New background image */
+    background-color: grey; /* Fallback color */
+    background-blend-mode: multiply; /* Blending the image and color */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Ensure the background does not repeat */
+    background-size: cover; /* Make the background cover the entire screen */
+    width: 100%;
+    height: 100vh; /* Full height of the viewport */
+    position: relative;
+     filter: contrast(120%) brightness(110%);
+}
+
+.navigationbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    height: 100px;
+     padding: 0 20px;
+     box-sizing: border-box;
+}
+
+.icon {
+   height: 100px;
+    width: auto; 
+    
+}
+.icon img {
+    width: 250px; /* Adjust the size of the logo */
+    height: 250px;
+    filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px white); 
+}
+
+
+
+.navbar {
+    display: flex;
+   transition: transform 0.3s ease-in-out;
+    align-items: center;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 70px;
+    position: relative; /* Allows absolute positioning for the pop-up */
+}
+
+.navbar ul li a {
+    font-family: Arial, sans-serif;
+     font-weight: bold;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    padding: 10px 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.navbar ul li a::after {
+    content: ""; /* Empty content to create the pop-up effect */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.navbar ul li a:hover {
+    color: purple; /* Changes the text color to white */
+    transform: scale(1.2); /* Enlarges the item on hover */
+}
+
+.navbar ul li a:hover::after {
+    transform: scaleX(1); /* Makes the underline pop up when hovering */
+    transform-origin: bottom left;
+}
+.content {
+    width: 450px;
+    height: 250px;
+    margin-left: 150px;
+    margin-top: 170px;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 90px; /* Adjust this value to create sufficient spacing */
+}
+
+.content h1 {
+    color: #fff;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+h1 span {
+    font-size: 65px;
+    color: pink;
+}
+
+.content p {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    word-spacing: 5px;
+    color: #fff;
+}
+.content:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+/* Initially hide the login box */
+.login {
+    position: fixed; /* Position it fixed on the screen */
+    top: 210px; /* Position below the navigation bar */
+    left: 70%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the box */
+    width: 350px;
+    height: 400px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.6) 50%);
+    border-radius: 10px;
+    padding: 25px;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Completely invisible */
+    transform: translateY(20px); /* Hidden with a slight downward offset */
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s ease 0.5s; /* Transition with delay for visibility */
+    z-index: 10; /* Ensure it appears on top */
+}
+
+/* When the login button is clicked */
+.login.active {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fade in */
+    transform: translateY(0) scale(1); /* Slide up and scale */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition without delay */
+}
+/* Additional styling for the login box contents (same as before) */
+.login h1 {
+    width: 200px;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: purple;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-left: 60px;
+    padding: 8px;
+}
+.login input {
+    width: 350px;
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid purple;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    font-family: sans-serif;
+}
+
+.login input[type=submit] {
+    width: 130px;
+    height: 40px;
+    background: purple;
+    margin-left: 100px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.login input[type=submit]:hover {
+    background: #fff;
+    color: purple;
+}
+
+.login input[value] {
+    text-decoration: none;
+    color: grey;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.login .acc {
+    font-family: Arial;
+    color: #fff;
+    font-size: 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.acc a {
+    text-decoration: none;
+    color: purple;
+}
+
+.social {
+    font-family: Arial;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px;
+    text-align: center;
+}
+
+.gg {
+    width: 200px;
+    height: 35px;
+    margin-left: 70px;
+}
+
+.gg a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.gg ion-icon {
+    color: #fff;
+    font-size: 21px;
+    padding-left: 14px;
+    padding-top: 8px;
+    transition: 0.4s ease;
+}
+
+.gg ion-icon:hover {
+    color: purple;
+}
+.portfolio {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.portfolio-header h2 {
+    font-size: 36px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.portfolio-header p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.portfolio-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 15px 0 5px;
+}
+
+.portfolio-item p {
+    font-size: 16px;
+    color: #555;
+    margin: 0 15px 15px;
+}
